@@ -1,5 +1,5 @@
 #En este programa vamos a solicitar datos de la persona, los cuales serán exportados a un archivo de texto.
-
+import unicodedata
 datos_completos = {}
 
 def agregar_datos(variable, dato):
@@ -14,7 +14,7 @@ apellidos = input("Ingresa tu apellido(s):\n").capitalize()
 agregar_datos("Apellidos", apellidos)
 print(datos_completos)
 
-genero = input("Escribe tu género M (masculino) o F (femenino):\n").lower()
+genero = input("Escribe tu género m (masculino) o f (femenino):\n").lower()
 agregar_datos("Género", genero)
 print(datos_completos)
 
@@ -38,7 +38,10 @@ telefono = int(input("Número de teléfono:\n"))
 agregar_datos("Teléfono", telefono)
 print(datos_completos)
 
-# def mostrar_datos(*informacion):
-    
-#     return f"Nombre completo: {nombre} {apellidos}\nGénero: {genero}\nFecha de nacimiento: {fecha_nacimiento}\nNúmero de teléfono: {telefono}"
+dict_to_string = str(datos_completos)
+
+
+archivo = open("datos.txt", "w")
+archivo.write(dict_to_string)
+archivo.close()
 
